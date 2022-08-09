@@ -1,1 +1,53 @@
 /* Styling */
+
+#container {
+    display: grid;
+    background-color: silver;
+    margin: auto;
+    justify-items: center;
+    row-gap: 20px;
+    font-family: "Sofia", sans-serif;
+    margin: 80px 0px;
+    padding: 20px 0px;
+}
+
+#find {
+    width: 500px;
+    height: 35px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-style: none;
+    text-align: center;
+}
+
+#Searchbar {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 0;
+}
+
+
+#Searchbar > button {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: darkgrey;
+    border-style: none;
+    width: 50px;
+}
+
+
+#Filter-items {
+    display: grid;
+    grid-auto-flow: column;
+    justify-items: center;
+    column-gap: 30px;
+}
+
+#Filter-items > button {
+    border-radius: 12px;
+    background-color: #fff;
+    width: 80px;
+    height: 35px;
+    border-style: solid;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
