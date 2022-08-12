@@ -10,11 +10,17 @@ h1 {
 }
 
 #header-container {
+    position: fixed;
+    height: 80px;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 0 20px;
+    padding: 0 30px;
+    background-color: white;
+    border-bottom: 1px;
+    box-shadow: 0 5px 7px -5px rgba(0, 0, 0, 0.8);
 }
 
 #logo {
@@ -34,7 +40,7 @@ h1 {
     justify-items: center;
     row-gap: 20px;
     font-family: "Sofia", sans-serif;
-    padding: 20px 0px;
+    padding: 100px 0px;  /* The padding on top and bottom is bigger than the header and the footer so that the sections don't overlap (header and footer are fixed). */
 }
 
 #find {
@@ -76,4 +82,22 @@ h1 {
     height: 35px;
     border-style: solid;
     font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#footer-container {
+    position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border-top: 1px;
+    box-shadow: 0 -5px 7px -5px rgba(0, 0, 0, 0.8);
+}
+
+#footer-container a {
+    padding: 30px 0 30px 30px;
 }
