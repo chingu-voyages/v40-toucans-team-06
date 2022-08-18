@@ -3,7 +3,7 @@
 const products = [
     {
         image: "/src/Images/T-shirts/2.png",
-        sizess: [
+        sizes: [
             "XL",
             "L",
             "M",
