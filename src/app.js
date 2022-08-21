@@ -30,11 +30,12 @@ function displayCards(product) {
   `;
   cards.appendChild(createCard);
 }
-<<<<<<< HEAD
+
+function increaseCounter() {
+  counterNumber++;
+  itemCounter.innerHTML = counterNumber;
+}
 
 for (let i = 0; i < payButtons.length; i++) {
     payButtons[i].addEventListener("click", increaseCounter)
 }
-||||||| e7fe2ee
-
-// displayCards();
