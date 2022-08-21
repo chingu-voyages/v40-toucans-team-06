@@ -41,8 +41,22 @@ main {
 }
 
 #shopping-cart-img {
-  width: 40px;
-  height: 40px;
+  width: 55px;
+  height: 55px;
+}
+
+#item-counter {
+  position: fixed;
+  font-weight: bold;
+  font-size: 11px;
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(25, 252, 233);
+  border-radius: 50%;
+  margin-left: -38px;
 }
 
 #footer-container {
