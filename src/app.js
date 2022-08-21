@@ -12,6 +12,7 @@ function displayCards(product) {
     sizes: [xlarge, large, medium, small],
     price,
     color,
+    title,
   } = product || {};
 
   const createCard = document.createElement("div");
@@ -19,14 +20,11 @@ function displayCards(product) {
   createCard.innerHTML = `
   <img src=${image} alt="" srcset="" />
           <div class="card-details">
-            <h6>T-shirt</h6>
+            <h6>${title}</h6>
             <p>${color}</p>
             <h6>${price} $</h6>
             <a href="" class="btn">Buy Now</a>
           </div>
   `;
-  //   console.log(product);
-	  cards.appendChild(createCard);
+  cards.appendChild(createCard);
 }
-
-// displayCards();
