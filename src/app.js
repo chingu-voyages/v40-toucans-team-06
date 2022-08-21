@@ -1,11 +1,14 @@
 // Main file of the app
 import { products } from "./data.js";
 
-products.forEach(displayCards);
-console.log(products);
-function displayCards(product) {
-  console.log(product);
+const payButtons = document.getElementsByClassName("button");
+const itemCounter = document.getElementById("item-counter");
+let counterNumber = 0;
+itemCounter.innerHTML = counterNumber;
 
+products.forEach(displayCards);
+
+function displayCards(product) {
   const cards = document.getElementById("card-container");
   const {
     image,
@@ -22,11 +25,17 @@ function displayCards(product) {
             <h6>T-shirt</h6>
             <p>${color}</p>
             <h6>${price} $</h6>
-            <a href="" class="btn">Buy Now</a>
+            <button class="button btn">Buy Now</button>
           </div>
   `;
-  //   console.log(product);
 	  cards.appendChild(createCard);
 }
 
-// displayCards();
+function increaseCounter() {
+  counterNumber++;
+  itemCounter.innerHTML = counterNumber;
+}
+
+for (let i = 0; i < payButtons.length; i++) {
+    payButtons[i].addEventListener("click", increaseCounter)
+}
