@@ -101,6 +101,8 @@ main {
 }
 
 .cards img {
+  margin-top: 10px;
+  margin-bottom: 10px;
   width: 100%;
 }
 
@@ -120,8 +122,9 @@ main {
 }
 
 .card-details p {
-  font-weight: lighter;
-  margin-bottom: 0px;
+  font-weight: normal;
+  margin-bottom: 0;
+  text-transform: capitalize;
 }
 
 .card-details .btn {
