@@ -7,7 +7,6 @@ let counterNumber = 0;
 itemCounter.innerHTML = counterNumber;
 
 products.forEach(displayCards);
-
 function displayCards(product) {
   const cards = document.getElementById("card-container");
   const {
@@ -15,6 +14,7 @@ function displayCards(product) {
     sizes: [xlarge, large, medium, small],
     price,
     color,
+    title,
   } = product || {};
 
   const createCard = document.createElement("div");
@@ -22,13 +22,13 @@ function displayCards(product) {
   createCard.innerHTML = `
   <img src=${image} alt="" srcset="" />
           <div class="card-details">
-            <h6>T-shirt</h6>
+            <h6>${title}</h6>
             <p>${color}</p>
             <h6>${price} $</h6>
-            <button class="button btn">Buy Now</button>
+            <button href="" class="button btn">Buy Now</button>
           </div>
   `;
-	  cards.appendChild(createCard);
+  cards.appendChild(createCard);
 }
 
 function increaseCounter() {
