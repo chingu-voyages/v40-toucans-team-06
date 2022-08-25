@@ -5,12 +5,21 @@ import { products } from "./data.js";
 const payButtons = document.getElementsByClassName("button");
 const itemCounter = document.getElementById("item-counter");
 const cards = document.getElementById("card-container");
+const search = document.getElementById('search');
+const check = document.getElementById('check');
 
 
+//Event listeners 
+search.addEventListener('keyup', reload_page);
+check.addEventListener('submit', searchItem);
+
+
+// Counter variables
 let counterNumber = 0;
 itemCounter.innerHTML = counterNumber;
 
 products.forEach(displayCards);
+
 
 // Dynamically displays cards
 function displayCards(product) {
@@ -49,13 +58,11 @@ for (let i = 0; i < payButtons.length; i++) {
 
 
 // search functionality
-document.addEventListener('submit', searchItem);
-
 function searchItem (e) {
   e.preventDefault();
-
   cards.innerHTML = '';
-  let item = e.target[0].value.toLowerCase();
+
+  let item = e.target[0].value.toLowerCase();  
   let pattern = new RegExp(item);
 
   let filtered = products.filter(elem => {
@@ -70,5 +77,17 @@ function searchItem (e) {
 
   else {
     filtered.forEach(displayCards);
+  }
+}
+
+// reload cards
+function reload_page(e) {
+  if (e.target.value == '') {
+    let reload = products.filter(elem => {
+      return elem
+    });
+
+    cards.innerHTML = '';
+    reload.forEach(displayCards);
   }
 }
