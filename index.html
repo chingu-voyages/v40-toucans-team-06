@@ -48,10 +48,35 @@
         <input id='search' type="text" placeholder="Search..." />
         <button type="submit"><i class="fa fa-search"></i></button>
       </form>
-      <h4 class="filter">Filter By</h4>
+      <!-- Dropdown menu-->
       <div class="filter-items">
-        <button type="submit">Size</button>
-        <button type="submit">Colour</button>
+        <div class="btn-group">
+          <button type="button" id="my-dropdown" class="btn btn-info dropdown dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Choose YOUR t-shirt here
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" id="all-products" href="#">Show all products</a>
+            <h2 class="dropdown-header">Colors:</h2>
+            <a class="dropdown-item" href="#">Lime</a>
+            <a class="dropdown-item" href="#">Red</a>
+            <a class="dropdown-item" href="#">Blue</a>
+            <a class="dropdown-item" href="#">Yellow</a>
+            <a class="dropdown-item" href="#">White</a>
+            <a class="dropdown-item" href="#">Orange</a>
+            <a class="dropdown-item" href="#">Violet</a>
+            <a class="dropdown-item" href="#">Purple</a>
+            <a class="dropdown-item" href="#">Black</a>
+            <a class="dropdown-item" href="#">Sky Blue</a>
+            <a class="dropdown-item" href="#">Wine</a>
+            <a class="dropdown-item" href="#">Green</a>
+            <div class="dropdown-divider"></div>
+            <h2 class="dropdown-header">Picture:</h2>
+            <a class="dropdown-item" href="#">Plain</a>
+            <a class="dropdown-item" href="#">Toucan</a>
+            <a class="dropdown-item" href="#">Bear</a>
+            <a class="dropdown-item" href="#">Gecko</a>
+          </div>
+        </div>
       </div>
       <div class="card-container" id="card-container"> </div>
     </main>

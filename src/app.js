@@ -91,3 +91,47 @@ function reload_page(e) {
     reload.forEach(displayCards);
   }
 }
+
+// Dropdown menu
+function filterWithDropdown() {
+  const itemOptions = document.getElementsByClassName("dropdown-item");
+  const allProducts = document.getElementById("all-products");
+
+  function chooseAndCompareItem(e) {
+    let chosenItem = e.target;
+    let matchingItems = [];
+
+    if (e.target === allProducts) {
+      matchingItems = products;
+    } else {
+      // Don't do anything.
+    }
+
+    for (let i = 0; i < products.length; i++) {
+      if (products[i].color === chosenItem.innerHTML) {
+        matchingItems.push(products[i]);
+      } else {
+        cards.innerHTML = ``;
+      }
+    }
+
+    for (let i = 0; i < products.length; i++) {
+      if (products[i].name === chosenItem.innerHTML) {
+        matchingItems.push(products[i]);
+      } else {
+        cards.innerHTML = ``;
+      }
+    }
+
+    matchingItems.forEach(displayCards);
+  }
+
+  function listOptions(optionsArray, action) {
+    for (let i = 0; i < optionsArray.length; i++) {
+      optionsArray[i].addEventListener("click", action)
+    }
+  }
+  listOptions(itemOptions, chooseAndCompareItem);
+}
+
+filterWithDropdown();
