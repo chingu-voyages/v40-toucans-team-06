@@ -39,7 +39,7 @@ function displayCards(product) {
             <h6>${title}</h6>
             <p>${color}</p>
             <h6>${price} $</h6>
-            <button href="" class="button btn">Buy Now</button>
+            <button class="button btn">Buy Now</button>
           </div>
   `;
   cards.appendChild(createCard);
@@ -53,7 +53,7 @@ function increaseCounter() {
 }
 
 for (let i = 0; i < payButtons.length; i++) {
-    payButtons[i].addEventListener("click", increaseCounter)
+    payButtons[i].addEventListener("click", increaseCounter);
 }
 
 
