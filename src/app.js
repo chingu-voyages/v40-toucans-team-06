@@ -107,6 +107,7 @@ function filterWithDropdown() {
       // Don't do anything.
     }
 
+    // Filter by color
     for (let i = 0; i < products.length; i++) {
       if (products[i].color === chosenItem.innerHTML) {
         matchingItems.push(products[i]);
@@ -115,8 +116,18 @@ function filterWithDropdown() {
       }
     }
 
+    // Filter by picture
     for (let i = 0; i < products.length; i++) {
       if (products[i].name === chosenItem.innerHTML) {
+        matchingItems.push(products[i]);
+      } else {
+        cards.innerHTML = ``;
+      }
+    }
+
+    // Filter by price
+    for (let i = 0; i < products.length; i++) {
+      if (products[i].price === parseInt(chosenItem.innerHTML)) {
         matchingItems.push(products[i]);
       } else {
         cards.innerHTML = ``;
