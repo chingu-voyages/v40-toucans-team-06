@@ -197,7 +197,7 @@ form>button {
 
 .info-title {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 70px;
 }
 
 .info-body {
@@ -205,6 +205,10 @@ form>button {
   justify-content: center;
   margin: 0 auto;
   width: 700px;
+}
+
+.info-text {
+  text-align: left;
 }
 
 .toucan-picture {
@@ -218,6 +222,19 @@ form>button {
 
 /* Contact page */
 
+.contact-title {
+  text-align: left;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+#source-code {
+  margin-top: 10px;
+}
+
+.email {
+  margin: 0;
+}
 
 
 /* Media Queries for Tablets */
