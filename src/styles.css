@@ -8,7 +8,8 @@ body {
   font-family: "Lato";
 }
 
-h1 {
+h1,
+h2 {
   font-weight: bold;
   text-shadow: 3px 3px 4px rgba(85, 161, 187, 0.7);
 }
@@ -130,6 +131,7 @@ main {
   border-radius: 7px;
   font-size: 13px !important;
 }
+
 .card-details h6 {
   font-weight: bold;
   margin-bottom: 2px !important;
@@ -166,7 +168,7 @@ form {
   width: 60%;
 }
 
-form > input {
+form>input {
   width: 100%;
   border-radius: 25px;
   display: block;
@@ -179,7 +181,7 @@ form > input {
   outline: none;
 }
 
-form > button {
+form>button {
   position: absolute;
   top: 0;
   right: 0;
@@ -191,6 +193,33 @@ form > button {
   background-color: transparent;
 }
 
+/* About Us page */
+
+.info-title {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.info-body {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 700px;
+}
+
+.toucan-picture {
+  display: flex;
+  justify-content: center;
+  width: 600px;
+  height: 700px;
+  margin: 0 auto;
+}
+
+
+/* Contact page */
+
+
+
 /* Media Queries for Tablets */
 
 @media (max-width: 1024px) {
@@ -201,6 +230,7 @@ form > button {
   form {
     width: 100%;
   }
+
   .card-container {
     grid-template-columns: repeat(4, 1fr);
     gap: 5px;
@@ -234,6 +264,7 @@ form > button {
   form {
     width: 100%;
   }
+
   .card-container {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
