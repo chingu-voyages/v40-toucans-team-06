@@ -53,16 +53,16 @@ function increaseCounter() {
 }
 
 for (let i = 0; i < payButtons.length; i++) {
-    payButtons[i].addEventListener("click", increaseCounter)
+  payButtons[i].addEventListener("click", increaseCounter)
 }
 
 
 // search functionality
-function searchItem (e) {
+function searchItem(e) {
   e.preventDefault();
   cards.innerHTML = '';
 
-  let item = e.target[0].value.toLowerCase();  
+  let item = e.target[0].value.toLowerCase();
   let pattern = new RegExp(item);
 
   let filtered = products.filter(elem => {
