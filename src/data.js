@@ -1,76 +1,56 @@
 // This is the file where we'll have our mock data of T-Shirts.
 
-const products = [
-  {
-    image: "./src/Images/T-Shirts_Variations/34.png",
-    sizes: ["XL", "L", "M", "S"],
-    price: 20,
-    color: "Black",
-    title: "Toucan T-Shirt",
-  },
-  {
-    image: "./src/Images/T-Shirts_Variations/4.png",
-    sizes: ["XL", "L", "M", "S"],
-    price: 20,
-    color: "Lime",
-    title: "Bear T-Shirt",
-  },
-  {
-    image: "./src/Images/T-Shirts_Variations/11.png",
-    sizes: ["XL", "L", "M", "S"],
-    price: 20,
-    color: "blue",
-    title: "Gecko T-Shirt",
-  },
-  {
-    image: "./src/Images/T-Shirts_Variations/8.png",
-    sizes: ["XL", "L", "M", "S"],
-    price: 20,
-    color: "Red",
-    title: "Bear T-Shirt",
-  },
-  {
-    image: "./src/Images/T-Shirts_Variations/10.png",
-    sizes: ["XL", "L", "M", "S"],
-    price: 20,
-    color: "Blue",
-    title: "Toucan T-Shirt",
-  },
-  {
-    image: "./src/Images/T-Shirts_Variations/19.png",
-    sizes: ["XL", "L", "M", "S"],
-    price: 20,
-    color: "White",
-    title: "Gecko T-Shirt",
-  },
-  {
-    image: "./src/Images/T-Shirts_Variations/14.png",
-    sizes: ["XL", "L", "M", "S"],
-    price: 20,
-    color: "Lime",
-    title: "Toucan T-Shirt",
-  },
-  {
-    image: "./src/Images/T-Shirts_Variations/32.png",
-    sizes: ["XL", "L", "M", "S"],
-    price: 20,
-    color: "Blue",
-    title: "Bear T-Shirt",
-  },
-  {
-    image: "./src/Images/T-Shirts_Variations/18.png",
-    sizes: ["XL", "L", "M", "S"],
-    price: 20,
-    color: "White",
-    title: "Toucan T-Shirt",
-  },
-  {
-    image: "./src/Images/T-Shirts_Variations/36.png",
-    sizes: ["XL", "L", "M", "S"],
-    price: 20,
-    color: "Black",
-    title: "Bear T-Shirt",
-  },
-];
+
+const products = [];
+
+function Wears(image, sizes, price, color, title, name) {
+  this.image = image;
+  this.sizes = sizes;
+  this.price = price;
+  this.color = color;
+  this.title = title;
+  this.name = name;
+      
+  return {image, sizes, price, color, title, name}
+}
+
+let i;
+let num_wears = 49;
+for (i = 1; i < num_wears; i++) {
+  let img = `./src/Images/T-Shirts_Variations/${i}.png`;
+  let colors = ['Lime', 'Red', 'Blue', 'Yellow', 'White', 'Orange', 'Violet', 'Purple', 'Black', 'Sky Blue', 'Wine', 'Green'];
+  let val = i / 4;
+  let cost = 0
+  let count = 1
+  let name = ''
+
+  let next_color = colors[Math.ceil(val) - 1];
+
+  if (i % 4 == 0) {
+    name = 'Bear';
+    cost = 55
+    count = 1
+  }
+
+  else if (i % 4 == 1){
+    name = 'Plain';
+    cost = 15
+    count++;
+  }
+
+  else if (i % 4 == 2){
+    name = 'Toucan';
+    cost = 30
+    count+=1;
+  }
+
+  else {
+    name = 'Gecko';
+    cost = 40
+  }
+
+  const new_wear = new Wears(img, ["XL", "L", "M", "S"], cost, next_color, `${name} T-Shirt`, name);
+  products.push(new_wear);
+}
 
 export { products };
