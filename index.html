@@ -37,9 +37,9 @@
       <a href="index.html"><img id="logo" src="/src/Images/logo.png" /></a>
       <h1>Toucan T-Shirts</h1>
       <div>
-        <a href="#">
+        <button id="open-shopping-cart" type="button" class="btn">
           <img id="shopping-cart-img" src="/src/Images/shopping-cart.svg" />
-        </a>
+        </button>
         <span id="item-counter"></span>
       </div>
     </header>
@@ -83,21 +83,38 @@
           </div>
         </div>
       </div>
-      <!-- List with the products in the shopping cart -->
-      <div id="shopping-list-container">
-        <h2>Items in your shopping cart</h2>
-        <table id="shopping-cart-table">
-          <tr class="shopping-info">
-            <th>Product Picture</th>
-            <th>Product Name</th>
-            <th>Color</th>
-            <th>Price</th>
-            <th>ID</th>
-          </tr>
-          <!-- The table body is created dynamically -->
-          <tbody id="my-shopping-list"></tbody>
-        </table>
+      <!-- Modal for Shopping Cart Items; Code provided by Bootstrap -->
+      <div class="modal fade" id="exampleModal"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title" id="exampleModalLabel">Items in your shopping cart</h2>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- List with the products in the shopping cart -->
+              <div id="shopping-list-container">
+                <table id="shopping-cart-table">
+                  <tr class="shopping-info">
+                    <th>Product Picture</th>
+                    <th>Product Name</th>
+                    <th>Color</th>
+                    <th>Price</th>
+                    <th>ID</th>
+                  </tr>
+                  <!-- The table body is created dynamically -->
+                  <tbody id="my-shopping-list"></tbody>
+                </table>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Go to payment</button>
+            </div>
+          </div>
+        </div>
       </div>
+
       <!-- The cards are created dynamically and appear here -->
       <h2>Save the toucans with our greatest t-shirt collection of all times!</h2>
       <div class="card-container" id="card-container"> </div>

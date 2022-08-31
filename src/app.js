@@ -83,7 +83,7 @@ function addItemToShoppingCart(e) {
         <td><img class="table-image" src="${myShoppingCartItems[i].image}"</td>
         <td>${myShoppingCartItems[i].title}</td>
         <td>${myShoppingCartItems[i].color}</td>
-        <td>${myShoppingCartItems[i].price}</td>
+        <td>${myShoppingCartItems[i].price} $</td>
         <td>${myShoppingCartItems[i].id}</td>
       </tr>
     `;
@@ -92,6 +92,17 @@ function addItemToShoppingCart(e) {
 
 }
 
+// Add modal that loads data dynamically and updates automatically
+let myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {
+  keyboard: false
+})
+
+const openCart = document.getElementById("open-shopping-cart");
+openCart.addEventListener("click", openShoppingCart)
+
+function openShoppingCart() {
+  myModal.toggle();
+}
 
 // search functionality
 function searchItem(e) {
