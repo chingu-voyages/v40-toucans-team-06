@@ -40,7 +40,7 @@ function displayCards(product) {
       <h6>${title}</h6>
       <p>${color}</p>
       <h6>${price} $</h6>
-      <button id="${x++}" class="button btn">Buy Now</button>
+      <button id="${x++}" class="button btn">Add to cart</button>
     </div>
   `;
   cards.appendChild(createCard);
@@ -147,5 +147,3 @@ function filterWithDropdown() {
 }
 
 filterWithDropdown();
-
-console.log(products);
