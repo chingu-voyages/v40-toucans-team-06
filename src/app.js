@@ -83,6 +83,7 @@ function displayCards(product) {
   // Add event listener to each card when it is created
   for (let i = 0; i < addToCartButtons.length; i++) {
     addToCartButtons[i].addEventListener("click", increaseCounter);
+    addToCartButtons[i].addEventListener("click", addItemToShoppingCart);
   }
 }
 
@@ -91,6 +92,24 @@ function displayCards(product) {
 function increaseCounter() {
   counterNumber++;
   itemCounter.innerHTML = counterNumber;
+}
+
+
+// Function to test the second button event listener
+console.log(products);
+function addItemToShoppingCart(e) {
+  let elementID = e.target.id;
+  console.log(elementID);
+
+  // Check if the button ID is the same as in the products array and then put the item into the array
+  for (let i = 0; i < products.length; i++) {
+    if (products[i].id === parseInt(e.target.id)) {
+      myShoppingCartItems.push(products[i]);
+    } else {
+      // Do nothing
+    }
+  }
+  console.log(myShoppingCartItems);
 }
 
 
