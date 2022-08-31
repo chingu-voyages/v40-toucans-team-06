@@ -3,7 +3,7 @@
 
 const products = [];
 
-function Wears(image, sizes, price, color, title, name, id) {
+function Wears(image, sizes, price, color, title, name, id, productCounter) {
   this.image = image;
   this.sizes = sizes;
   this.price = price;
@@ -11,8 +11,9 @@ function Wears(image, sizes, price, color, title, name, id) {
   this.title = title;
   this.name = name;
   this.id = id;
+  this.productCounter = productCounter;
       
-  return {image, sizes, price, color, title, name, id}
+  return {image, sizes, price, color, title, name, id, productCounter}
 }
 
 let i;
@@ -25,6 +26,7 @@ for (i = 1; i < num_wears; i++) {
   let count = 1;
   let name = '';
   let id = i;
+  let productCounter = 0;
 
   let next_color = colors[Math.ceil(val) - 1];
 
@@ -51,7 +53,7 @@ for (i = 1; i < num_wears; i++) {
     cost = 40;
   }
 
-  const new_wear = new Wears(img, ["XL", "L", "M", "S"], cost, next_color, `${name} T-Shirt`, name, id);
+  const new_wear = new Wears(img, ["XL", "L", "M", "S"], cost, next_color, `${name} T-Shirt`, name, id, productCounter);
   products.push(new_wear);
 }
 

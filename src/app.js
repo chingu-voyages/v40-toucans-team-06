@@ -68,10 +68,26 @@ function addItemToShoppingCart(e) {
   const shoppingTable = document.getElementById("my-shopping-list");
   shoppingTable.innerHTML = ``;
 
-  // Check if the button ID is the same as in the products array and then put the item into the array
+  // Check if the button ID is the same as in the products array and then put the item into the array.
   for (let i = 0; i < products.length; i++) {
+    // Check if the item in the products array has the same ID as the clicked button.
     if (products[i].id === parseInt(e.target.id)) {
-      myShoppingCartItems.push(products[i]);
+      /*
+        Check if the myShoppingCartItems array already contains an item with the same ID as the ID of the clicked button.
+        The some() method immediately stops searching as soon as it finds an item with the same id.
+      */
+      if (myShoppingCartItems.some(element => element.id === parseInt(e.target.id))) {
+        // Loop through the myShoppingCartItems array and increase the productCounter if the item already exists in the array.
+        for (let i = 0; i < myShoppingCartItems.length; i++) {
+          if (myShoppingCartItems[i].id === parseInt(e.target.id)) {
+            myShoppingCartItems[i].productCounter++;
+          }
+        }
+      } else {
+        // Add the item to the table if it isn't there yet.
+        products[i].productCounter = 1;
+        myShoppingCartItems.push(products[i]);
+      }
     } else {
       // Do nothing
     }
@@ -84,7 +100,7 @@ function addItemToShoppingCart(e) {
         <td>${myShoppingCartItems[i].title}</td>
         <td>${myShoppingCartItems[i].color}</td>
         <td>${myShoppingCartItems[i].price} $</td>
-        <td>${myShoppingCartItems[i].id}</td>
+        <td>${myShoppingCartItems[i].productCounter}</td>
       </tr>
     `;
     shoppingTable.innerHTML += row;
