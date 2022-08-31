@@ -18,6 +18,7 @@ check.addEventListener('submit', searchItem);
 let counterNumber = 0;
 itemCounter.innerHTML = counterNumber;
 
+let x = 1;
 products.forEach(displayCards);
 
 
@@ -34,13 +35,13 @@ function displayCards(product) {
   const createCard = document.createElement("div");
   createCard.classList.add("cards");
   createCard.innerHTML = `
-  <img src=${image} alt="" srcset="" />
-          <div class="card-details">
-            <h6>${title}</h6>
-            <p>${color}</p>
-            <h6>${price} $</h6>
-            <button href="" class="button btn">Buy Now</button>
-          </div>
+    <div class="card-details">
+      <img src=${image} alt="" srcset="" />
+      <h6>${title}</h6>
+      <p>${color}</p>
+      <h6>${price} $</h6>
+      <button id="${x++}" class="button btn">Buy Now</button>
+    </div>
   `;
   cards.appendChild(createCard);
 }
@@ -84,7 +85,7 @@ function searchItem(e) {
 function reload_page(e) {
   if (e.target.value == '') {
     let reload = products.filter(elem => {
-      return elem
+      return elem;
     });
 
     cards.innerHTML = '';
@@ -139,10 +140,12 @@ function filterWithDropdown() {
 
   function listOptions(optionsArray, action) {
     for (let i = 0; i < optionsArray.length; i++) {
-      optionsArray[i].addEventListener("click", action)
+      optionsArray[i].addEventListener("click", action);
     }
   }
   listOptions(itemOptions, chooseAndCompareItem);
 }
 
 filterWithDropdown();
+
+console.log(products);
