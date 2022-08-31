@@ -86,9 +86,17 @@
       <!-- List with the products in the shopping cart -->
       <div id="shopping-list-container">
         <h2>Items in your shopping cart</h2>
-        <p id="empty-shopping-list">Don't leave your poor shopping cart hungry! :-( Buy something!</p>
-        <!-- The table is created dynamically -->
-        <table id="my-shopping-list"></table>
+        <table id="shopping-cart-table">
+          <tr class="shopping-info">
+            <th>Product Picture</th>
+            <th>Product Name</th>
+            <th>Color</th>
+            <th>Price</th>
+            <th>ID</th>
+          </tr>
+          <!-- The table body is created dynamically -->
+          <tbody id="my-shopping-list"></tbody>
+        </table>
       </div>
       <!-- The cards are created dynamically and appear here -->
       <h2>Save the toucans with our greatest t-shirt collection of all times!</h2>

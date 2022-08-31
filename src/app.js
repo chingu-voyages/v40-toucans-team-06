@@ -19,41 +19,6 @@ let counterNumber = 0;
 itemCounter.innerHTML = counterNumber;
 
 
-// Shopping cart table
-let myShoppingCartItems = [];
-function displayShoppingCart() {
-  const shoppingTable = document.getElementById("my-shopping-list");
-  shoppingTable.innerHTML = `
-    <tr>
-      <th>Product Name</th>
-      <th>Color</th>
-      <th>Price</th>
-      <th>Quantity</th>
-    </tr>
-    <tr>
-      <td>Gecko T-Shirt</td>
-      <td>Lime</td>
-      <td>27 $</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <td>Toucan T-Shirt</td>
-      <td>Red</td>
-      <td>30 $</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <td>Bear T-Shirt</td>
-      <td>Black</td>
-      <td>50 $</td>
-      <td>3</td>
-    </tr>
-  `;
-}
-
-displayShoppingCart();
-
-
 let x = 1;
 products.forEach(displayCards);
 
@@ -95,11 +60,13 @@ function increaseCounter() {
 }
 
 
-// Function to test the second button event listener
-console.log(products);
+// Function to add items to the shopping cart table
+let myShoppingCartItems = [];
+
 function addItemToShoppingCart(e) {
   let elementID = e.target.id;
-  console.log(elementID);
+  const shoppingTable = document.getElementById("my-shopping-list");
+  shoppingTable.innerHTML = ``;
 
   // Check if the button ID is the same as in the products array and then put the item into the array
   for (let i = 0; i < products.length; i++) {
@@ -109,7 +76,20 @@ function addItemToShoppingCart(e) {
       // Do nothing
     }
   }
-  console.log(myShoppingCartItems);
+
+  for (let i = 0; i < myShoppingCartItems.length; i++) {
+    let row = `
+      <tr>
+        <td><img class="table-image" src="${myShoppingCartItems[i].image}"</td>
+        <td>${myShoppingCartItems[i].title}</td>
+        <td>${myShoppingCartItems[i].color}</td>
+        <td>${myShoppingCartItems[i].price}</td>
+        <td>${myShoppingCartItems[i].id}</td>
+      </tr>
+    `;
+    shoppingTable.innerHTML += row;
+  }
+
 }
 
 
