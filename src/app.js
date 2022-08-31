@@ -2,7 +2,7 @@
 import { products } from "./data.js";
 
 //Declared variables to target nodes
-const payButtons = document.getElementsByClassName("button");
+const addToCartButtons = document.getElementsByClassName("button");
 const itemCounter = document.getElementById("item-counter");
 const cards = document.getElementById("card-container");
 const search = document.getElementById('search');
@@ -20,6 +20,7 @@ itemCounter.innerHTML = counterNumber;
 
 
 // Shopping cart table
+let myShoppingCartItems = [];
 function displayShoppingCart() {
   const shoppingTable = document.getElementById("my-shopping-list");
   shoppingTable.innerHTML = `
@@ -78,6 +79,11 @@ function displayCards(product) {
     </div>
   `;
   cards.appendChild(createCard);
+
+  // Add event listener to each card when it is created
+  for (let i = 0; i < addToCartButtons.length; i++) {
+    addToCartButtons[i].addEventListener("click", increaseCounter);
+  }
 }
 
 
@@ -85,10 +91,6 @@ function displayCards(product) {
 function increaseCounter() {
   counterNumber++;
   itemCounter.innerHTML = counterNumber;
-}
-
-for (let i = 0; i < payButtons.length; i++) {
-  payButtons[i].addEventListener("click", increaseCounter)
 }
 
 
