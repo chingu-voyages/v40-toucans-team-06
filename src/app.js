@@ -18,9 +18,43 @@ check.addEventListener('submit', searchItem);
 let counterNumber = 0;
 itemCounter.innerHTML = counterNumber;
 
+
+// Shopping cart table
+function displayShoppingCart() {
+  const shoppingTable = document.getElementById("my-shopping-list");
+  shoppingTable.innerHTML = `
+    <tr>
+      <th>Product Name</th>
+      <th>Color</th>
+      <th>Price</th>
+      <th>Quantity</th>
+    </tr>
+    <tr>
+      <td>Gecko T-Shirt</td>
+      <td>Lime</td>
+      <td>27 $</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Toucan T-Shirt</td>
+      <td>Red</td>
+      <td>30 $</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>Bear T-Shirt</td>
+      <td>Black</td>
+      <td>50 $</td>
+      <td>3</td>
+    </tr>
+  `;
+}
+
+displayShoppingCart();
+
+
 let x = 1;
 products.forEach(displayCards);
-
 
 // Dynamically displays cards
 function displayCards(product) {

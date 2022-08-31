@@ -12,6 +12,7 @@ h1,
 h2 {
   font-weight: bold;
   text-shadow: 3px 3px 4px rgba(85, 161, 187, 0.7);
+  margin-bottom: 20px;
 }
 
 main {
@@ -20,6 +21,24 @@ main {
   margin: 40px auto;
   margin-top: 60px;
   padding: 2rem;
+}
+
+/* Table styling taken from https://www.w3schools.com/html/tryit.asp?filename=tryhtml_table_intro */
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  background-color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
 
 #header-container {
@@ -58,6 +77,10 @@ main {
   background-color: rgb(25, 252, 233);
   border-radius: 50%;
   margin-left: -38px;
+}
+
+#shopping-list-container {
+  margin-bottom: 20px;
 }
 
 #footer-container {
