@@ -3,15 +3,17 @@
 
 const products = [];
 
-function Wears(image, sizes, price, color, title, name) {
+function Wears(image, sizes, price, color, title, name, id, productCounter) {
   this.image = image;
   this.sizes = sizes;
   this.price = price;
   this.color = color;
   this.title = title;
   this.name = name;
+  this.id = id;
+  this.productCounter = productCounter;
       
-  return {image, sizes, price, color, title, name}
+  return {image, sizes, price, color, title, name, id, productCounter}
 }
 
 let i;
@@ -20,36 +22,38 @@ for (i = 1; i < num_wears; i++) {
   let img = `./src/Images/T-Shirts_Variations/${i}.png`;
   let colors = ['Lime', 'Red', 'Blue', 'Yellow', 'White', 'Orange', 'Violet', 'Purple', 'Black', 'Sky Blue', 'Wine', 'Green'];
   let val = i / 4;
-  let cost = 0
-  let count = 1
-  let name = ''
+  let cost = 0;
+  let count = 1;
+  let name = '';
+  let id = i;
+  let productCounter = 0;
 
   let next_color = colors[Math.ceil(val) - 1];
 
   if (i % 4 == 0) {
     name = 'Bear';
-    cost = 55
-    count = 1
+    cost = 55;
+    count = 1;
   }
 
   else if (i % 4 == 1){
     name = 'Plain';
-    cost = 15
+    cost = 15;
     count++;
   }
 
   else if (i % 4 == 2){
     name = 'Toucan';
-    cost = 30
+    cost = 30;
     count+=1;
   }
 
   else {
     name = 'Gecko';
-    cost = 40
+    cost = 40;
   }
 
-  const new_wear = new Wears(img, ["XL", "L", "M", "S"], cost, next_color, `${name} T-Shirt`, name);
+  const new_wear = new Wears(img, ["XL", "L", "M", "S"], cost, next_color, `${name} T-Shirt`, name, id, productCounter);
   products.push(new_wear);
 }
 
