@@ -262,6 +262,10 @@ form>button {
   margin: 0 auto;
 }
 
+.show-modal {
+   transition: all ease-in .5s;
+}
+
 
 /* Contact page */
 
