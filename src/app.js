@@ -5,19 +5,17 @@ import { products } from "./data.js";
 const addToCartButtons = document.getElementsByClassName("button");
 const itemCounter = document.getElementById("item-counter");
 const cards = document.getElementById("card-container");
-const search = document.getElementById('search');
-const check = document.getElementById('check');
+const search = document.getElementById("search");
+const check = document.getElementById("check");
+const totalAmountEl = document.getElementById("total");
 
-
-//Event listeners 
-search.addEventListener('keyup', reload_page);
-check.addEventListener('submit', searchItem);
-
+//Event listeners
+search.addEventListener("keyup", reload_page);
+check.addEventListener("submit", searchItem);
 
 // Counter variables
 let counterNumber = 0;
 itemCounter.innerHTML = counterNumber;
-
 
 let x = 1;
 products.forEach(displayCards);
@@ -52,13 +50,11 @@ function displayCards(product) {
   }
 }
 
-
 // Item count in cart
 function increaseCounter() {
   counterNumber++;
   itemCounter.innerHTML = counterNumber;
 }
-
 
 // Function to add items to the shopping cart table
 let myShoppingCartItems = [];
@@ -76,7 +72,11 @@ function addItemToShoppingCart(e) {
         Check if the myShoppingCartItems array already contains an item with the same ID as the ID of the clicked button.
         The some() method immediately stops searching as soon as it finds an item with the same id.
       */
-      if (myShoppingCartItems.some(element => element.id === parseInt(e.target.id))) {
+      if (
+        myShoppingCartItems.some(
+          (element) => element.id === parseInt(e.target.id)
+        )
+      ) {
         // Loop through the myShoppingCartItems array and increase the productCounter if the item already exists in the array.
         for (let i = 0; i < myShoppingCartItems.length; i++) {
           if (myShoppingCartItems[i].id === parseInt(e.target.id)) {
@@ -105,16 +105,22 @@ function addItemToShoppingCart(e) {
     `;
     shoppingTable.innerHTML += row;
   }
-
+  // Updates total amount with the product counter
+  let total = 0;
+  for (let i = 0; i < myShoppingCartItems.length; i++) {
+    total += myShoppingCartItems[i].price * myShoppingCartItems[i].productCounter;
+    totalAmountEl.innerHTML = `$${total}`;
+  }
+  // End of total amount element
 }
 
 // Add modal that loads data dynamically and updates automatically
-let myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {
-  keyboard: false
-})
+let myModal = new bootstrap.Modal(document.getElementById("exampleModal"), {
+  keyboard: false,
+});
 
 const openCart = document.getElementById("open-shopping-cart");
-openCart.addEventListener("click", openShoppingCart)
+openCart.addEventListener("click", openShoppingCart);
 
 function openShoppingCart() {
   myModal.toggle();
@@ -123,12 +129,12 @@ function openShoppingCart() {
 // search functionality
 function searchItem(e) {
   e.preventDefault();
-  cards.innerHTML = '';
+  cards.innerHTML = "";
 
   let item = e.target[0].value.toLowerCase();
   let pattern = new RegExp(item);
 
-  let filtered = products.filter(elem => {
+  let filtered = products.filter((elem) => {
     if (pattern.test(elem.title.toLowerCase())) {
       return elem;
     }
@@ -136,21 +142,19 @@ function searchItem(e) {
 
   if (filtered.length == 0) {
     cards.innerHTML = `<h1>Not Found</h1>`;
-  }
-
-  else {
+  } else {
     filtered.forEach(displayCards);
   }
 }
 
 // reload cards
 function reload_page(e) {
-  if (e.target.value == '') {
-    let reload = products.filter(elem => {
+  if (e.target.value == "") {
+    let reload = products.filter((elem) => {
       return elem;
     });
 
-    cards.innerHTML = '';
+    cards.innerHTML = "";
     reload.forEach(displayCards);
   }
 }

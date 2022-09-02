@@ -45,17 +45,27 @@
     </header>
     <main id="body-page">
       <form id="check">
-        <input id='search' type="text" placeholder="Search..." />
+        <input id="search" type="text" placeholder="Search..." />
         <button type="submit"><i class="fa fa-search"></i></button>
       </form>
       <!-- Dropdown menu-->
       <div class="filter-items">
         <div class="btn-group">
-          <button type="button" id="my-dropdown" class="btn btn-info dropdown dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button
+            type="button"
+            id="my-dropdown"
+            class="btn btn-info dropdown dropdown-toggle"
+            data-toggle="dropdown"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
             Choose YOUR t-shirt here
           </button>
           <div class="dropdown-menu">
-            <a class="dropdown-item" id="all-products" href="#">Show all products</a>
+            <a class="dropdown-item" id="all-products" href="#"
+              >Show all products</a
+            >
             <h2 class="dropdown-header">Colors:</h2>
             <a class="dropdown-item" href="#">Lime</a>
             <a class="dropdown-item" href="#">Red</a>
@@ -84,12 +94,27 @@
         </div>
       </div>
       <!-- Modal for Shopping Cart Items; Code provided by Bootstrap -->
-      <div class="modal fade" id="exampleModal"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+      <div
+        class="modal fade show-modal"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div
+          class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl"
+        >
           <div class="modal-content">
             <div class="modal-header">
-              <h2 class="modal-title" id="exampleModalLabel">Items in your shopping cart</h2>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <h2 class="modal-title" id="exampleModalLabel"
+                >Items in your shopping cart</h2
+              >
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
             </div>
             <div class="modal-body">
               <!-- List with the products in the shopping cart -->
@@ -105,18 +130,35 @@
                   <!-- The table body is created dynamically -->
                   <tbody id="my-shopping-list"></tbody>
                 </table>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>Total</td>
+                      <td id="total"></td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Go to payment</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+                >Close</button
+              >
+              <button type="button" class="btn btn-primary"
+                >Go to payment</button
+              >
             </div>
           </div>
         </div>
       </div>
 
       <!-- The cards are created dynamically and appear here -->
-      <h2>Save the toucans with our greatest t-shirt collection of all times!</h2>
+      <h2
+        >Save the toucans with our greatest t-shirt collection of all times!</h2
+      >
       <div class="card-container" id="card-container"> </div>
     </main>
 
