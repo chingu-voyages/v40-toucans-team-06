@@ -34,7 +34,8 @@ td {
   width: 20%;
 }
 
-td, th {
+td,
+th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
@@ -263,7 +264,7 @@ form>button {
 }
 
 .show-modal {
-   transition: all ease-in .5s;
+  transition: all ease-in .5s;
 }
 
 
@@ -284,6 +285,53 @@ form>button {
 }
 
 /* Checkout Page */
+
+.checkout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.contact,
+.shipping,
+.payment {
+  width: 500px;
+}
+
+#contact-information,
+#shipping-information,
+#payment-information {
+  margin-bottom: 20px;
+}
+
+#payment-options {
+  font-size: x-small;
+}
+
+.buy-button {
+  margin-top: 10px;
+  width: 200px;
+}
+
+.payment-info {
+  width: 500px;
+  font-size: x-small;
+}
+
+#info {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 3px;
+}
+
+.user-input {
+  padding-left: 5px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  margin-right: 10px;
+}
 
 
 /* Media Queries for Tablets */

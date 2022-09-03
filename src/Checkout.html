@@ -33,10 +33,35 @@
         </div>
     </header>
     <main id="body-page">
-        <form>
-            <div class="form-group">
+        <div class="checkout">
+            <div class="contact">
+                <h4 id="contact-information">Contact Information</h4>
+                <input class="user-input" placeholder="Full Name" type="text">
+                <input class="user-input" placeholder="Email" type="text">
             </div>
-        </form>
+            <div class="shipping">
+                <h4 id="shipping-information">Shipping Information</h4>
+                <input class="user-input" placeholder="Country" type="text">
+                <input class="user-input" placeholder="City" type="text">
+                <input class="user-input" placeholder="State/Province" type="text">
+                <input class="user-input" placeholder="Address" type="text">
+                <input class="user-input" placeholder="Postal Code" type="text">
+            </div>
+            <div class="payment">
+                <h4 id="payment-information">Payment <span id="payment-options">Mastercard/Visa</span></h4>
+                <input class="user-input" placeholder="Card number" type="text">
+                <input class="user-input" type="date">
+                <input class="user-input" placeholder="Security Code" type="text">
+            </div>
+            <button class="btn btn-dark buy-button">Checkout</button>
+            <div class="payment-info">
+                <h6 id="info">Info</h6>
+                <p id="cards-information">
+                    For now only Mastercard and Visa cards are available as payment options.
+                    We might add more options in the future.
+                </p>
+            </div>
+        </div>
     </main>
     <footer id="footer-container">
         <!-- Links to About us and Contact pages -->
