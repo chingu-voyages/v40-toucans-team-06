@@ -34,7 +34,8 @@ td {
   width: 20%;
 }
 
-td, th {
+td,
+th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
@@ -263,7 +264,7 @@ form>button {
 }
 
 .show-modal {
-   transition: all ease-in .5s;
+  transition: all ease-in .5s;
 }
 
 
