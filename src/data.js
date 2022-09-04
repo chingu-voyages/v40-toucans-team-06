@@ -12,8 +12,8 @@ function Wears(image, sizes, price, color, title, name, id, productCounter) {
   this.name = name;
   this.id = id;
   this.productCounter = productCounter;
-      
-  return {image, sizes, price, color, title, name, id, productCounter}
+
+  return { image, sizes, price, color, title, name, id, productCounter }
 }
 
 let i;
@@ -36,16 +36,16 @@ for (i = 1; i < num_wears; i++) {
     count = 1;
   }
 
-  else if (i % 4 == 1){
+  else if (i % 4 == 1) {
     name = 'Plain';
     cost = 15;
     count++;
   }
 
-  else if (i % 4 == 2){
+  else if (i % 4 == 2) {
     name = 'Toucan';
     cost = 30;
-    count+=1;
+    count += 1;
   }
 
   else {
