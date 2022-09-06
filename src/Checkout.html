@@ -33,27 +33,68 @@
         </div>
     </header>
     <main id="body-page">
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Thank You!!!</h5>
+                        <button 
+                        type="button" 
+                        class="btn-close" 
+                        data-bs-dismiss="modal"
+                        onclick="location.href='/index.html'" 
+                        aria-label="Close">
+                        </button>
+                    </div>
+                    
+                    <div class="modal-body">
+                    Your purchase has been succesfully completed.
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                        onclick="location.href='/index.html'"
+                        >Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form action="" id="thanksModal">
         <div class="checkout">
             <div class="contact">
                 <h4 id="contact-information">Contact Information</h4>
-                <input class="user-input" placeholder="Full Name" type="text">
-                <input class="user-input" placeholder="Email" type="text">
+                <input class="user-input" placeholder="Full Name" type="text" required>
+                <input class="user-input" placeholder="Email" type="text" required>
             </div>
             <div class="shipping">
                 <h4 id="shipping-information">Shipping Information</h4>
-                <input class="user-input" placeholder="Country" type="text">
-                <input class="user-input" placeholder="City" type="text">
-                <input class="user-input" placeholder="State/Province" type="text">
-                <input class="user-input" placeholder="Address" type="text">
-                <input class="user-input" placeholder="Postal Code" type="text">
+                <input class="user-input" placeholder="Country" type="text" required>
+                <input class="user-input" placeholder="City" type="text" required>
+                <input class="user-input" placeholder="State/Province" type="text" required>
+                <input class="user-input" placeholder="Address" type="text" required>
+                <input class="user-input" placeholder="Postal Code" type="text" required>
             </div>
             <div class="payment">
                 <h4 id="payment-information">Payment <span id="payment-options">Mastercard/Visa</span></h4>
-                <input class="user-input" placeholder="Card number" type="text">
-                <input class="user-input" type="date">
-                <input class="user-input" placeholder="Security Code" type="text">
+                <input class="user-input" placeholder="Card number" type="text" required>
+                <input class="user-input" type="date" required>
+                <input class="user-input" placeholder="Security Code" type="text" required>
             </div>
-            <button class="btn btn-dark buy-button">Checkout</button>
+            
+            <button class="btn btn-dark buy-button"
+            type="submit"
+            data-toggle="modal" 
+            data-target="#exampleModalCenter"
+            >
+            Checkout
+            </button>
+        </form>
+
             <div class="payment-info">
                 <h6 id="info">Info</h6>
                 <p id="cards-information">
@@ -69,6 +110,25 @@
         <a href="./AboutUs.html">About us</a>
         <a href="./Contact.html">Contact</a>
     </footer>
+
+    <script type="module">
+        /*checkout*/
+        // Add modal that loads data dynamically and updates automatically
+        let myCheckout = new bootstrap.Modal(document.getElementById("exampleModalCenter"), {
+        keyboard: false,
+        });
+
+
+        const checkout1 = document.getElementById("thanksModal");
+        checkout1.addEventListener("submit", checkedOut);
+
+        function checkedOut(e) {
+            console.log('done')
+            e.preventDefault();
+            myCheckout.toggle();
+        }
+
+    </script>
 </body>
 
 </html>

@@ -268,6 +268,10 @@ form>button {
 }
 
 
+#thanksModal {
+  background-color: #f4f4f4;
+}
+
 /* Contact page */
 
 .contact-title {
