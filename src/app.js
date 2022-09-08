@@ -3,7 +3,7 @@ import { products } from "./data.js";
 
 //Declared variables to target nodes
 const addToCartButtons = document.getElementsByClassName("button");
-const itemCounter = document.getElementById("item-counter");
+const itemCounter = document.getElementsByClassName("item-counter");
 const cards = document.getElementById("card-container");
 const search = document.getElementById("search");
 const check = document.getElementById("check");
@@ -46,14 +46,24 @@ function displayCards(product) {
   // Add event listener to each card when it is created
   for (let i = 0; i < addToCartButtons.length; i++) {
     addToCartButtons[i].addEventListener("click", increaseCounter);
+    addToCartButtons[i].addEventListener("click", showItemCounter);
     addToCartButtons[i].addEventListener("click", addItemToShoppingCart);
   }
 }
 
 // Item count in cart
 function increaseCounter() {
-  counterNumber++;
-  itemCounter.innerHTML = counterNumber;
+  for (let i = 0; i < itemCounter.length; i++) {
+    counterNumber++;
+    itemCounter[i].innerHTML = counterNumber;
+  }
+}
+
+// Shows the shopping cart item-counter as soon as an item is added
+function showItemCounter() {
+  for (let i = 0; i < itemCounter.length; i++) {
+    itemCounter[i].classList.add("show-item-counter");
+  }
 }
 
 // Function to add items to the shopping cart table
