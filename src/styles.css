@@ -75,7 +75,7 @@ tr:nth-child(even) {
   height: 55px;
 }
 
-#item-counter {
+.show-item-counter {
   position: fixed;
   font-weight: bold;
   font-size: 11px;
