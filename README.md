@@ -1,14 +1,23 @@
-# voyage-tasks
+# Toucan T-Shirts
 
-Your project's `readme` is as important to success as your code. For 
-this reason you should put as much care into its creation and maintenance
-as you would any other component of the application.
+## Overview
 
-If you are unsure of what should go into the `readme` let this article,
-written by an experienced Chingu, be your starting point - 
-[Keys to a well written README](https://tinyurl.com/yk3wubft).
+This app was created by toucans team 06 for the chingu voyage 40. It's a merch site where you can buy t-shirts. All the purchases go towards our charity of choice. 
 
-And before we go there's "one more thing"! Once you decide what to include
-in your `readme` feel free to replace the text we've provided here.
+**LIVE LINK: https://lovely-croissant-f74d98.netlify.app/**
 
-> Own it & Make it your Own!
+***Note: You can't actually buy anything, it just mocks a buying process. Don't put any sensitive information into the checkout.***
+
+## Features
+
+- Filter t-shirts by color price, color or style with a dropdown.
+- Search for a t-shirt with the searchbar.
+- Check your cart at all times without changing page by using our dynamic shopping cart.
+
+## Tech used / Dependencies
+
+- Vanilla JS, HTML & CSS
+- Additional styling from [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+- Fonts from [Google fonts](https://fonts.google.com/)
+- Icons from [Font awesome](https://fontawesome.com/)
+- T-shirts created with [Canva](https://www.canva.com/)
