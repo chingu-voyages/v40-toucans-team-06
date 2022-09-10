@@ -8,6 +8,7 @@ const cards = document.getElementById("card-container");
 const search = document.getElementById("search");
 const check = document.getElementById("check");
 const totalAmountEl = document.getElementById("total");
+let filtered_products = [];
 
 //Event listeners
 search.addEventListener("keyup", reload_page);
@@ -17,7 +18,6 @@ check.addEventListener("submit", searchItem);
 let counterNumber = 0;
 itemCounter.innerHTML = counterNumber;
 
-let x = 1;
 products.forEach(displayCards);
 
 // Dynamically displays cards
@@ -28,6 +28,7 @@ function displayCards(product) {
     price,
     color,
     title,
+    id,
   } = product || {};
 
   const createCard = document.createElement("div");
@@ -38,12 +39,14 @@ function displayCards(product) {
       <h6>${title}</h6>
       <p>${color}</p>
       <h6>${price} $</h6>
-      <button id="${x++}" class="button btn">Add to cart</button>
+      <button id="${id}" class="button btn">Add to cart</button>
     </div>
   `;
   cards.appendChild(createCard);
 
   // Add event listener to each card when it is created
+  
+
   for (let i = 0; i < addToCartButtons.length; i++) {
     addToCartButtons[i].addEventListener("click", increaseCounter);
     addToCartButtons[i].addEventListener("click", showItemCounter);
@@ -74,14 +77,17 @@ function addItemToShoppingCart(e) {
   const shoppingTable = document.getElementById("my-shopping-list");
   shoppingTable.innerHTML = ``;
 
+
   // Check if the button ID is the same as in the products array and then put the item into the array.
   for (let i = 0; i < products.length; i++) {
     // Check if the item in the products array has the same ID as the clicked button.
     if (products[i].id === parseInt(e.target.id)) {
+      
       /*
         Check if the myShoppingCartItems array already contains an item with the same ID as the ID of the clicked button.
         The some() method immediately stops searching as soon as it finds an item with the same id.
       */
+     
       if (
         myShoppingCartItems.some(
           (element) => element.id === parseInt(e.target.id)
