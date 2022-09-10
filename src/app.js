@@ -2,24 +2,23 @@
 import { products } from "./data.js";
 
 //Declared variables to target nodes
-const payButtons = document.getElementsByClassName("button");
-const itemCounter = document.getElementById("item-counter");
+const addToCartButtons = document.getElementsByClassName("button");
+const itemCounter = document.getElementsByClassName("item-counter");
 const cards = document.getElementById("card-container");
-const search = document.getElementById('search');
-const check = document.getElementById('check');
+const search = document.getElementById("search");
+const check = document.getElementById("check");
+const totalAmountEl = document.getElementById("total");
 
-
-//Event listeners 
-search.addEventListener('keyup', reload_page);
-check.addEventListener('submit', searchItem);
-
+//Event listeners
+search.addEventListener("keyup", reload_page);
+check.addEventListener("submit", searchItem);
 
 // Counter variables
 let counterNumber = 0;
 itemCounter.innerHTML = counterNumber;
 
+let x = 1;
 products.forEach(displayCards);
-
 
 // Dynamically displays cards
 function displayCards(product) {
@@ -34,38 +33,118 @@ function displayCards(product) {
   const createCard = document.createElement("div");
   createCard.classList.add("cards");
   createCard.innerHTML = `
-  <img src=${image} alt="" srcset="" />
-          <div class="card-details">
-            <h6>${title}</h6>
-            <p>${color}</p>
-            <h6>${price} $</h6>
-            <button href="" class="button btn">Buy Now</button>
-          </div>
+    <div class="card-details">
+      <img src=${image} alt="" srcset="" />
+      <h6>${title}</h6>
+      <p>${color}</p>
+      <h6>${price} $</h6>
+      <button id="${x++}" class="button btn">Add to cart</button>
+    </div>
   `;
   cards.appendChild(createCard);
-}
 
+  // Add event listener to each card when it is created
+  for (let i = 0; i < addToCartButtons.length; i++) {
+    addToCartButtons[i].addEventListener("click", increaseCounter);
+    addToCartButtons[i].addEventListener("click", showItemCounter);
+    addToCartButtons[i].addEventListener("click", addItemToShoppingCart);
+  }
+}
 
 // Item count in cart
 function increaseCounter() {
-  counterNumber++;
-  itemCounter.innerHTML = counterNumber;
+  for (let i = 0; i < itemCounter.length; i++) {
+    counterNumber++;
+    itemCounter[i].innerHTML = counterNumber;
+  }
 }
 
-for (let i = 0; i < payButtons.length; i++) {
-  payButtons[i].addEventListener("click", increaseCounter)
+// Shows the shopping cart item-counter as soon as an item is added
+function showItemCounter() {
+  for (let i = 0; i < itemCounter.length; i++) {
+    itemCounter[i].classList.add("show-item-counter");
+  }
 }
 
+// Function to add items to the shopping cart table
+let myShoppingCartItems = [];
+
+function addItemToShoppingCart(e) {
+  let elementID = e.target.id;
+  const shoppingTable = document.getElementById("my-shopping-list");
+  shoppingTable.innerHTML = ``;
+
+  // Check if the button ID is the same as in the products array and then put the item into the array.
+  for (let i = 0; i < products.length; i++) {
+    // Check if the item in the products array has the same ID as the clicked button.
+    if (products[i].id === parseInt(e.target.id)) {
+      /*
+        Check if the myShoppingCartItems array already contains an item with the same ID as the ID of the clicked button.
+        The some() method immediately stops searching as soon as it finds an item with the same id.
+      */
+      if (
+        myShoppingCartItems.some(
+          (element) => element.id === parseInt(e.target.id)
+        )
+      ) {
+        // Loop through the myShoppingCartItems array and increase the productCounter if the item already exists in the array.
+        for (let i = 0; i < myShoppingCartItems.length; i++) {
+          if (myShoppingCartItems[i].id === parseInt(e.target.id)) {
+            myShoppingCartItems[i].productCounter++;
+          }
+        }
+      } else {
+        // Add the item to the table if it isn't there yet.
+        products[i].productCounter = 1;
+        myShoppingCartItems.push(products[i]);
+      }
+    } else {
+      // Do nothing
+    }
+  }
+
+  for (let i = 0; i < myShoppingCartItems.length; i++) {
+    let row = `
+      <tr>
+        <td><img class="table-image" src="${myShoppingCartItems[i].image}"</td>
+        <td>${myShoppingCartItems[i].title}</td>
+        <td>${myShoppingCartItems[i].color}</td>
+        <td>${myShoppingCartItems[i].price} $</td>
+        <td>${myShoppingCartItems[i].productCounter}</td>
+      </tr>
+    `;
+    shoppingTable.innerHTML += row;
+  }
+  // Updates total amount with the product counter
+  let total = 0;
+  for (let i = 0; i < myShoppingCartItems.length; i++) {
+    total += myShoppingCartItems[i].price * myShoppingCartItems[i].productCounter;
+    totalAmountEl.innerHTML = `$${total}`;
+  }
+  // End of total amount element
+}
+
+// Add modal that loads data dynamically and updates automatically
+let myModal = new bootstrap.Modal(document.getElementById("exampleModal"), {
+  keyboard: false,
+});
+
+const openCart = document.getElementById("open-shopping-cart");
+openCart.addEventListener("click", openShoppingCart);
+
+function openShoppingCart() {
+  myModal.toggle();
+}
 
 // search functionality
 function searchItem(e) {
   e.preventDefault();
-  cards.innerHTML = '';
+  cards.innerHTML = "";
 
   let item = e.target[0].value.toLowerCase();
   let pattern = new RegExp(item);
 
-  let filtered = products.filter(elem => {
+  let filtered = products.filter((elem) => {
     if (pattern.test(elem.title.toLowerCase())) {
       return elem;
     }
@@ -73,21 +152,19 @@ function searchItem(e) {
 
   if (filtered.length == 0) {
     cards.innerHTML = `<h1>Not Found</h1>`;
-  }
-
-  else {
+  } else {
     filtered.forEach(displayCards);
   }
 }
 
 // reload cards
 function reload_page(e) {
-  if (e.target.value == '') {
-    let reload = products.filter(elem => {
-      return elem
+  if (e.target.value == "") {
+    let reload = products.filter((elem) => {
+      return elem;
     });
 
-    cards.innerHTML = '';
+    cards.innerHTML = "";
     reload.forEach(displayCards);
   }
 }
@@ -139,7 +216,7 @@ function filterWithDropdown() {
 
   function listOptions(optionsArray, action) {
     for (let i = 0; i < optionsArray.length; i++) {
-      optionsArray[i].addEventListener("click", action)
+      optionsArray[i].addEventListener("click", action);
     }
   }
   listOptions(itemOptions, chooseAndCompareItem);

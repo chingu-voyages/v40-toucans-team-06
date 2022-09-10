@@ -12,6 +12,7 @@ h1,
 h2 {
   font-weight: bold;
   text-shadow: 3px 3px 4px rgba(85, 161, 187, 0.7);
+  margin-bottom: 20px;
 }
 
 main {
@@ -20,6 +21,34 @@ main {
   margin: 40px auto;
   margin-top: 60px;
   padding: 2rem;
+}
+
+/* Table styling taken from https://www.w3schools.com/html/tryit.asp?filename=tryhtml_table_intro and modified */
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td {
+  width: 20%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  background-color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.table-image {
+  width: 50px;
+  height: 60px;
 }
 
 #header-container {
@@ -46,7 +75,7 @@ main {
   height: 55px;
 }
 
-#item-counter {
+.show-item-counter {
   position: fixed;
   font-weight: bold;
   font-size: 11px;
@@ -58,6 +87,10 @@ main {
   background-color: rgb(25, 252, 233);
   border-radius: 50%;
   margin-left: -38px;
+}
+
+#shopping-list-container {
+  margin-bottom: 20px;
 }
 
 #footer-container {
@@ -136,7 +169,6 @@ main {
   /*background-image: linear-gradient(90deg, #b4ecd5, #72d7fd);*/
   padding: 10px;
   margin: 0;
-  margin-top: -10px;
   border-radius: 7px;
   font-size: 13px !important;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -231,6 +263,14 @@ form>button {
   margin: 0 auto;
 }
 
+.show-modal {
+  transition: all ease-in .5s;
+}
+
+
+#thanksModal {
+  background-color: #f4f4f4;
+}
 
 /* Contact page */
 
@@ -246,6 +286,55 @@ form>button {
 
 .email {
   margin: 0;
+}
+
+/* Checkout Page */
+
+.checkout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.contact,
+.shipping,
+.payment {
+  width: 500px;
+}
+
+#contact-information,
+#shipping-information,
+#payment-information {
+  margin-bottom: 20px;
+}
+
+#payment-options {
+  font-size: x-small;
+}
+
+.buy-button {
+  margin-top: 10px;
+  width: 200px;
+}
+
+.payment-info {
+  width: 500px;
+  font-size: x-small;
+}
+
+#info {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 3px;
+}
+
+.user-input {
+  padding-left: 5px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  margin-right: 10px;
 }
 
 
