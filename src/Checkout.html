@@ -23,85 +23,75 @@
 <body>
     <header id="header-container">
         <!-- Navbar -->
-        <a href="/index.html"><img id="logo" src="/src/Images/logo.png" /></a>
+        <a href="/index.html"><img id="logo" alt="Logo" src="/src/Images/logo.png" /></a>
         <h1>Toucan T-Shirts</h1>
         <div>
             <a href="#">
-                <img id="shopping-cart-img" src="/src/Images/shopping-cart.svg" />
+                <img id="shopping-cart-img" alt="Shopping Cart" src="/src/Images/shopping-cart.svg" />
             </a>
             <span class="item-counter"></span>
         </div>
     </header>
     <main id="body-page">
         <!-- Modal -->
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenter" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLongTitle">Thank You!!!</h5>
-                        <button 
-                        type="button" 
-                        class="btn-close" 
-                        data-bs-dismiss="modal"
-                        onclick="location.href='/index.html'" 
-                        aria-label="Close">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            onclick="location.href='/index.html'" aria-label="Close">
                         </button>
                     </div>
-                    
+
                     <div class="modal-body">
-                    Your purchase has been succesfully completed.
+                        Your purchase has been succesfully completed.
                     </div>
-                    
+
                     <div class="modal-footer">
-                        <button
-                        type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal"
-                        onclick="location.href='/index.html'"
-                        >Close</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            onclick="location.href='/index.html'">Close</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <form action="" id="thanksModal">
-        <div class="checkout">
-            <div class="contact">
-                <h4 id="contact-information">Contact Information</h4>
-                <input class="user-input" placeholder="Full Name" type="text" required>
-                <input class="user-input" placeholder="Email" type="text" required>
+        <form id="thanksModal">
+            <div class="checkout">
+                <div class="contact">
+                    <h4 id="contact-information">Contact Information</h4>
+                    <input class="user-input" placeholder="Full Name" type="text" required>
+                    <input class="user-input" placeholder="Email" type="text" required>
+                </div>
+                <div class="shipping">
+                    <h4 id="shipping-information">Shipping Information</h4>
+                    <input class="user-input" placeholder="Country" type="text" required>
+                    <input class="user-input" placeholder="City" type="text" required>
+                    <input class="user-input" placeholder="State/Province" type="text" required>
+                    <input class="user-input" placeholder="Address" type="text" required>
+                    <input class="user-input" placeholder="Postal Code" type="text" required>
+                </div>
+                <div class="payment">
+                    <h4 id="payment-information">Payment <span id="payment-options">Mastercard/Visa</span></h4>
+                    <input class="user-input" placeholder="Card number" type="text" required>
+                    <input class="user-input" type="date" required>
+                    <input class="user-input" placeholder="Security Code" type="text" required>
+                </div>
+
+                <button class="btn btn-dark buy-button" type="submit" data-toggle="modal"
+                    data-target="#exampleModalCenter">
+                    Checkout
+                </button>
             </div>
-            <div class="shipping">
-                <h4 id="shipping-information">Shipping Information</h4>
-                <input class="user-input" placeholder="Country" type="text" required>
-                <input class="user-input" placeholder="City" type="text" required>
-                <input class="user-input" placeholder="State/Province" type="text" required>
-                <input class="user-input" placeholder="Address" type="text" required>
-                <input class="user-input" placeholder="Postal Code" type="text" required>
-            </div>
-            <div class="payment">
-                <h4 id="payment-information">Payment <span id="payment-options">Mastercard/Visa</span></h4>
-                <input class="user-input" placeholder="Card number" type="text" required>
-                <input class="user-input" type="date" required>
-                <input class="user-input" placeholder="Security Code" type="text" required>
-            </div>
-            
-            <button class="btn btn-dark buy-button"
-            type="submit"
-            data-toggle="modal" 
-            data-target="#exampleModalCenter"
-            >
-            Checkout
-            </button>
         </form>
 
-            <div class="payment-info">
-                <h6 id="info">Info</h6>
-                <p id="cards-information">
-                    For now only Mastercard and Visa cards are available as payment options.
-                    We might add more options in the future.
-                </p>
-            </div>
+        <div class="payment-info">
+            <h6 id="info">Info</h6>
+            <p id="cards-information">
+                For now only Mastercard and Visa cards are available as payment options.
+                We might add more options in the future.
+            </p>
         </div>
     </main>
     <footer id="footer-container">
@@ -115,7 +105,7 @@
         /*checkout*/
         // Add modal that loads data dynamically and updates automatically
         let myCheckout = new bootstrap.Modal(document.getElementById("exampleModalCenter"), {
-        keyboard: false,
+            keyboard: false,
         });
 
 
